@@ -1,0 +1,33 @@
+import React, { useState } from "react";
+
+function Image({ src, alt }) {
+  return <img src={src} alt={alt} />;
+}
+
+function Gallery({ images }) {
+  return (
+    <div className="gallery">
+      {images.map((image, index) => (
+        <Image key={index} src={image.src} alt={image.alt} />
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  const [images, setImages] = useState([
+    { src: "image1.jpg", alt: "Image 1" },
+    { src: "image2.jpg", alt: "Image 2" },
+    { src: "image3.jpg", alt: "Image 3" },
+    // Add more images as needed
+  ]);
+
+  return (
+    <div>
+      <h1>Photo Gallery</h1>
+      <Gallery images={images} />
+    </div>
+  );
+}
+
+export default App;
