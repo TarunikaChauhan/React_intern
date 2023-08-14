@@ -1,0 +1,58 @@
+import React, { useState } from "react";
+
+function App() {
+  const [personalInfo, setPersonalInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+
+  const handlePersonalInfoChange = (e) => {
+    const { name, value } = e.target;
+    setPersonalInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
+  };
+
+  return (
+    <div>
+      <h1>Online Resume Builder</h1>
+      <form>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={personalInfo.name}
+          onChange={handlePersonalInfoChange}
+        />
+
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={personalInfo.email}
+          onChange={handlePersonalInfoChange}
+        />
+
+        <label>Phone:</label>
+        <input
+          type="tel"
+          name="phone"
+          value={personalInfo.phone}
+          onChange={handlePersonalInfoChange}
+        />
+
+        <label>Address:</label>
+        <input
+          type="text"
+          name="address"
+          value={personalInfo.address}
+          onChange={handlePersonalInfoChange}
+        />
+      </form>
+
+      {/* Additional form sections for education, work experience, etc. */}
+    </div>
+  );
+}
+
+export default App;
